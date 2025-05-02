@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Konversi Rupiah ke Dollar</title>
+  <style>
+    body {
+      background-color: #f2f4f7;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Konversi Rupiah ke Dollar</h2>
+    <input type="number" id="rupiahInput" placeholder="Masukkan jumlah dalam Rupiah">
+    <div id="result">Rp 0 = 0.00 Dollar AS</div>
+  </div>
+
+  <script>
+    const input = document.getElementById('rupiahInput');
+    const result = document.getElementById('result');
+    const rate = 16000; // 1 USD = 16.000 IDR (contoh nilai tukar)
+
+    input.addEventListener('input', () => {
+      const rupiah = parseFloat(input.value);
+      if (!isNaN(rupiah)) {
+        const dollar = rupiah / rate;
+        result.innerText = `Rp ${rupiah.toLocaleString('id-ID')} = ${dollar.toFixed(2)} Dollar AS`;
+      } else {
+        result.innerText = 'Rp 0 = 0.00 Dollar AS';
+      }
+    });
+  </script>
+
+</body>
+</html>
